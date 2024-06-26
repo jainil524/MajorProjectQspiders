@@ -28,12 +28,14 @@ function getProducts(category) {
     if (category) {
         linkToFetch += '/category/' + category;
     }
-
+    document.querySelector(".item-container").innerHTML = `<h1 class="loading">Loading...</h1>`;
     fetch(linkToFetch)
         .then(res => res.json())
         .then(
             (result) => {
+                document.querySelector(".item-container").innerHTML = ``;
                 setProducts(result);
+
             },
             (error) => {
                 console.log(error);

@@ -6,6 +6,7 @@ document.addEventListener('DOMContentLoaded', function () {
     getCategories();
     if (hash != null) {
         getProducts(hash.split("#")[1]);
+
     } else {
         getProducts();
 

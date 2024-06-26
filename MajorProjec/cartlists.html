@@ -156,8 +156,9 @@
 
         if (cartlist) {
           cartlist = JSON.parse(cartlist);
-
+          document.querySelector(".item-container").innerHTML = "<h1>Loading items...</h1>";
           let products = await getProductByName(cartlist);
+          document.querySelector(".item-container").innerHTML = "";
           setProducts({ products: products });
         }
       });
