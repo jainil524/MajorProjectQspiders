@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1></h1>
+
+    <script defer>
+      function greet() {
+        let name = prompt("Tell your name: ");
+        let age = prompt("Tell your age: ");
+        let type = ``;
+        let message = ``;
+
+        if (age < 0) {
+          type = "Still a sperm";
+        } else {
+          if (age < 12) {
+            type = "Child";
+          } else if (age > 12 && age < 18) {
+            type = "Teenager";
+          } else if (age > 18 && age < 50) {
+            type = "Adult";
+          } else {
+            type = "Budhau";
+          }
+        }
+        message = `Your name is ${name} and you age is ${age} and you are ${type}`;
+
+        document.querySelector("h1").innerText = message;
+      }
+
+      greet();
+    </script>
+  </body>
+</html>

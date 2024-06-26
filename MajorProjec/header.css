@@ -1,0 +1,251 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100dvw;
+  height: 100dvh;
+  overflow: hidden;
+  font-family: "Aptos", "Proxima Nova", sans-serif;
+}
+
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #f3bdff;
+}
+
+::-webkit-scrollbar-track {
+  background: #aea3f7;
+}
+
+.main-container {
+  width: 100%;
+  height: 100%;
+}
+
+header {
+  width: 100%;
+  height: 5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  position: relative;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.284);
+}
+
+header .logo {
+  width: 10rem;
+  height: 7rem;
+}
+
+.logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+nav ul,
+.options ul {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  gap: 2rem;
+}
+
+ul li:hover {
+  cursor: pointer;
+}
+
+ul li a {
+  text-decoration: none;
+  color: #000;
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: 0.1s ease-in-out 0.1s;
+}
+
+nav ul li {
+  padding: 0.4rem 0;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  align-items: center;
+  transform-origin: left;
+}
+
+nav ul li img {
+  width: 1.7rem;
+  height: 1.7rem;
+  object-fit: cover;
+}
+
+nav ul li::before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 3px;
+  background-color: #333;
+  transition: 0.2s ease-in-out;
+  display: block;
+  bottom: -5px;
+  left: 0;
+}
+
+nav ul li:hover::before {
+  width: 100%;
+}
+
+nav ul li:hover a {
+  color: blue;
+}
+
+.options {
+  margin-left: auto;
+  width: max-content;
+}
+
+.listicon{
+  position: relative;
+}
+
+.listicon[data-count]::after{
+  content: attr(data-count);
+  position: absolute;
+  min-width:17px;
+  height: 17px;
+  background-color: red;
+  border-radius: 100vw;
+  transition: 0.2s ease-in-out;
+  display: block;
+  bottom: -6px;
+  right: -4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: .7rem;
+  padding: .1rem .1rem;
+}
+
+nav {
+  margin-left: auto;
+}
+
+main {
+  width: 100%;
+  height: calc(100% - 5rem);
+}
+
+.search-con {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  margin-left: auto;
+  padding: 0 2rem;
+}
+
+.search-con .wrapper {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  overflow: hidden;
+}
+
+.wrapper input {
+  width: 13rem;
+  height: 2.5rem;
+  border: 2px solid #000;
+  padding: 0 0.5rem;
+  border-radius: 5px;
+  border-right: none;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+  font-family: aptos;
+  font-size: 1rem;
+  transition: 0.2s ease-in-out;
+}
+
+.wrapper .search-icon {
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #000;
+  border-left: none;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
+.wrapper img {
+  width: 1.5rem;
+  height: 1.5rem;
+  object-fit: cover;
+}
+
+.wrapper input:focus-visible {
+  outline: none;
+}
+
+.profile-container-info {
+  display: none;
+  position: absolute;
+  bottom: -140px;
+  right: 10px;
+  background: white;
+  border: 1px solid #ccc;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  width: 200px;
+  border-radius: 8px;
+  overflow: hidden;
+  z-index: 100;
+}
+
+header:has(.profile.visible) .profile-container-info {
+  display: block;
+}
+
+.profile-info {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  background: #f7f7f7;
+}
+
+.profile-info img {
+  width: 2rem;
+  height: 2rem;
+  object-fit: contain;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.profile-options ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.profile-options ul li {
+  padding: 10px;
+  border-top: 1px solid #eee;
+}
+
+.profile-options ul li a {
+  font-weight: 400;
+  font-size: 0.9rem;
+  text-decoration: none;
+  color: #333;
+  display: block;
+  transition: 0.2s ease-in-out;
+}
+.profile-options ul li.logout a {
+  color: rgb(203, 3, 3);
+}

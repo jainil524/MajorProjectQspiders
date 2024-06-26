@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../header.css" />
+    <link rel="stylesheet" href="../items.css" />
+    <link rel="stylesheet" href="./wishlist.css">
+
+    <title>Home</title>
+  </head>
+
+  <body>
+    <div class="main-container">
+      <header>
+        <div class="logo">
+          <img src="../img/Logo.png" alt="" />
+        </div>
+        <nav>
+          <ul>
+            <li>
+              <img src="../img/Home.svg" alt="" />
+              <a href="../Home/Home.html">Home</a>
+            </li>
+            <li>
+              <img src="../img/man.png" alt="" />
+
+              <a href="">Man</a>
+            </li>
+            <li>
+              <img src="../img/woman.png" alt="" />
+              <a href="">Woman</a>
+            </li>
+            <li>
+              <img src="../img/baby-boy.png" alt="" />
+
+              <a href="">Kids</a>
+            </li>
+          </ul>
+        </nav>
+        <div class="options">
+          <ul>
+            <li>
+              <div class="search-con">
+                <div class="wrapper">
+                  <input
+                    id="search"
+                    type="search"
+                    placeholder="Search for products, brands and more"
+                  />
+                  <div class="search-icon">
+                    <label for="search"
+                      ><img tabindex="1" src="../img/Search.svg" alt=""
+                    /></label>
+                  </div>
+                </div>
+              </div>
+            </li>
+            <li class="wish listicon">
+              <a href="../WishList/wishlists.html">
+                <img src="../img/WishList.svg" alt="" />
+              </a>
+            </li>
+            <li class="cart listicon">
+              <a href="../CartList/cartlists.html">
+                <img src="../img/Cart.png" alt="" />
+              </a>
+            </li>
+            <li class="profile" onclick="this.classList.toggle('visible')">
+              <a href="../Profile/profile.html">
+                <img src="../img/Profile.svg" alt="" />
+              </a>
+            </li>
+          </ul>
+        </div>
+        <div class="profile-container-info">
+          <div class="profile-info">
+            <div class="profile-img">
+              <img src="../img/Profile.svg" alt="" />
+            </div>
+            <div class="profile-name">
+              <p class="username"></p>
+            </div>
+          </div>
+          <div class="profile-options">
+            <ul>
+              <li><a href="../Profile/profile.html>Profile</a></li>
+              <li class="logout"><a href="Logout.html">Logout</a></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <main>
+        <div class="item-container"></div>
+      </main>
+    </div>
+
+    <script src="../loginCheck.js"></script>
+
+    <script>
+      let pagename = "wishlist";
+      
+    </script>
+    <script src="../item.js" defer></script>
+    <script defer>
+      document.addEventListener("DOMContentLoaded", async () => {
+        let wishlist = window.localStorage.getItem("wishlist");
+
+        if (wishlist) {
+          wishlist = JSON.parse(wishlist);
+
+          let products = await getProductByName(wishlist);
+          setProducts({ products: products });
+        }
+      });
+
+      async function getProductByName(wishlist) {
+        let products = [];
+
+        for (let i = 0; i < wishlist.length; i++) {
+          let result = await fetch(
+            "https://dummyjson.com/products/search?q=" + wishlist[i].title
+          );
+          let res = await result.json();
+          products.push(res.products[0]);
+        }
+        return products;
+      }
+    </script>
+  </body>
+</html>

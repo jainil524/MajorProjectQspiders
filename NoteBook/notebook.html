@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="./Logo.png" type="image/x-icon" />
+    <title>Two Notes</title>
+    <link rel="stylesheet" href="./css/notebook.css" />
+    <link rel="stylesheet" href="./css/popup.css" />
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <img src="./Logo.png" alt="" />
+      </div>
+      <h1>Two Notes</h1>
+    </header>
+
+    <main class="main-container">
+      <aside class="left container">
+        <h1>Save Your Note Here</h1>
+
+        <form action="#">
+          <div>
+            <label for="title">Title</label>
+            <input type="text" name="" id="title" />
+          </div>
+          <div>
+            <label for="note">Note</label>
+            <textarea name="" id="note" cols="30" rows="10"></textarea>
+          </div>
+          <div>
+            <label for="tag">Tags</label>
+            <textarea type="text" id="tags" placeholder="Add tags separated by , i.e. xyz,abc"></textarea>
+          </div>
+          <div class="save-btn">
+            <button onclick="addNote()" type="button">Save</button>
+          </div>
+        </form>
+      </aside>
+      <section class="right container">
+        <div class="error">
+          <p>No Note Found <a href="#title">Add Note</a></p>
+        </div>
+      </section>
+    </main>
+
+    <div class="popup-container" id="popup-container">
+      <div class="popup" id="popup">
+        <h1>Edit Notes</h1>
+        <div>
+          <label for="edit-title">Title</label>
+          <input type="text" id="popup-title" />
+        </div>
+        <div>
+          <label for="edit-note">Note</label>
+          <textarea id="popup-note" cols="30" rows="10"></textarea>
+        </div>
+        <div>
+          <label for="edit-tag">Tags</label>
+          <textarea type="text" id="popup-tags" placeholder="Add tags separated by ','"></textarea>
+        </div>
+        <div class="btns">
+          <button onclick="saveEdit()">Save</button>
+          <button onclick="closePopup()">Cancel</button>
+        </div>
+      </div>
+    </div>
+    <script src="./js/notebook.js"></script>
+    <script src="./js/popup.js"></script>
+  </body>
+</html>

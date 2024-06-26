@@ -1,0 +1,180 @@
+/* Start item Container */
+
+main{
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+
+.metainfo{
+  width: 20%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.metainfo .banner{
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-image: linear-gradient(to right top, #d16ba5, #c777b9, #ba83ca,40%, #aa8fd8, #9a9ae1, #8aa7ec, #79b3f4, #69bff8, #52cffe);
+}
+
+.categories{
+  width: 100%;
+  gap: 1rem;
+  width: 100%;
+  padding: 1rem;
+}
+
+.categories ul{
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  gap: 1rem;
+}
+
+.categories .category{
+  color: white;
+  transition: 0.2s ease-in-out;
+  font-weight: 600;
+}
+
+/* End item Container */
+
+/* Popup Start */
+
+.popup-container {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 100;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup-container.active-popup {
+  display: flex;
+}
+
+.popup {
+  width: 50%;
+  height: 80%;
+  border-radius: 10px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  background-color: #fff;
+  overflow: hidden;
+}
+
+.popup .close {
+  width: 100%;
+  text-align: right ;
+}
+
+.popup .close img {
+  width: 1rem;
+  height: 1rem;
+  object-fit: contain;
+}
+
+.popup .popup-body {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  gap: 1rem;
+  overflow-y: auto;
+
+}
+
+.popup-body .item{
+  width: 100%;
+  flex-direction: column;
+  box-shadow: none;
+}
+
+
+.popup-body .item .item-img{
+  width: 100%;
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center
+}
+
+.popup-body .item .item-img img{
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.item .reviews{
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+  width: 100%;
+  padding: .5rem 0;
+}
+
+.reviews .review{
+  
+}
+
+.review a{
+  font-weight: 600;
+  color: #333;
+  text-decoration: none;
+
+
+}
+
+.reviews .review img{
+  width: .8rem;
+  height: .8rem;
+  object-fit: contain;
+}
+
+.review .reviewer-info{
+  font-size: .9rem;
+  font-weight: 600;
+  color: #333;
+  margin-left: .4rem;
+  padding-left: 1rem;
+  border-left: 1px solid #333;
+}
+
+.reviewer-info h3{
+  font-size: 1rem;
+  font-weight: 600;
+  color: #333;
+}
+
+.review .review-comment{
+  font-size: .9rem;
+  color: black;
+  margin-block: .6rem;
+  font-family: "Proxima Nova", sans-serif;
+}
+
+.popup .item-btns{
+  margin-block: 1rem;
+  gap: 2rem;
+}
+
+.popup .item-btns button{
+  border-radius: 0px;
+  font-weight: 600;
+}
+
+.popup .item-price{
+  margin-block: .3rem ;
+}
+
+/* Popup End */

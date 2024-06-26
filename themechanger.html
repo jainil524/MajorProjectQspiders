@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        font-family: aptos;
+      }
+
+      body {
+        margin: 1rem;
+      }
+
+      .theme {
+        padding: 2rem;
+        font-size: 1rem;
+        margin-bottom: 2rem;
+      }
+
+      .theme.light {
+        color: black;
+        background-color: #fff;
+      }
+
+      .theme.dark {
+        color: white;
+        background-color: #000;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="theme light">
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Impedit dolorem
+      provident obcaecati pariatur. Reprehenderit corporis, quasi sunt itaque
+      minus harum quam! Dolorum porro enim voluptas, debitis omnis, adipisci
+      optio iste similique mollitia laudantium, ad quas. Quod voluptatum dolores
+      labore magnam eligendi quis optio error, nostrum, sint itaque dolore eius
+      consectetur dicta ex qui perferendis laboriosam, sequi nemo ipsum enim
+      similique? Eaque a porro omnis nulla, facilis ab praesentium inventore
+      cumque. Fugit minus nobis harum nesciunt. Ullam delectus labore, molestiae
+      soluta nemo cum impedit rerum nesciunt mollitia exercitationem sit dolor,
+      ea a suscipit voluptatibus omnis numquam eius eveniet iste. Ea,
+      consectetur!
+    </div>
+
+    <label for="">Background Color: </label><br /><input
+      type="color"
+      id="bgc"
+    /><br />
+    <label for="">Font Color: </label><br /><input
+      type="color"
+      id="color"
+    /><br /><br /><br />
+
+    <button onclick="applyTheme()">Change theme</button>
+    <!-- <button onclick="changeTheme()">dark theme</button> -->
+
+    <script>
+      let div = document.querySelector("div");
+      let btn = document.querySelector("button");
+
+      function changeTheme() {
+        if (div.classList.contains("light")) {
+          div.classList.remove("light");
+          div.classList.add("dark");
+
+          btn.innerText = "Light Theme";
+        } else {
+          div.classList.remove("dark");
+          div.classList.add("light");
+
+          btn.innerText = "Dark Theme";
+        }
+      }
+
+      function applyTheme() {
+        div.style.backgroundColor = document.getElementById("bgc").value;
+        div.style.color = document.getElementById("color").value;
+      }
+    </script>
+  </body>
+</html>

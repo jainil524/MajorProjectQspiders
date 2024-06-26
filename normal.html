@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1 id="counter">0</h1>
+    <button onclick="document.getElementById('counter').innerText = parseInt(document.getElementById('counter').innerText)+1">+</button>
+    <button onclick="document.getElementById('counter').innerText = 0">Reset</button>
+    <button onclick="document.getElementById('counter').innerText = parseInt(document.getElementById('counter').innerText)-1">-</button>
+    
+    <!-- <script>
+        function doOperation(type){
+            let h1 = document.querySelector('h1');
+
+
+            if(type === 'increment'){
+                h1.innerText = parseInt(h1.innerText) + 1;
+            }else if(type === 'decrement'){
+                h1.innerText = parseInt(h1.innerText) - 1;
+            }else if(type === 'reset'){
+                h1.innerText = 0;
+            }
+        } -->
+    </script>
+</body>
+</html>
