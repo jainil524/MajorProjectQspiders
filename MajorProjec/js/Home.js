@@ -33,7 +33,8 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
-// Debounce function
+// function which stops the search function to run multiple times
+// and only runs the search function after the user stops typing for 30ms
 function debounce(func, delay) {
     return function () {
         clearTimeout();
@@ -41,6 +42,7 @@ function debounce(func, delay) {
     };
 }
 
+// function to get products catogories from the API 
 function getCategories() {
 
     fetch('https://dummyjson.com/products/category-list')
@@ -56,6 +58,37 @@ function getCategories() {
 }
 
 
+// function to set categories in the page home
+function setCategory(categoies) {
+    let categoiesCont = document.querySelector('.categories ul');
+
+    let categoryElement = document.createElement('li');
+    categoryElement.className = 'category';
+    categoryElement.innerHTML = "All";
+    categoiesCont.appendChild(categoryElement);
+
+    categoryElement.addEventListener('click', function () {
+        getProducts();
+        window.location.hash = "";
+    });
+
+    categoies.forEach(category => {
+
+        let categoryElement = document.createElement('li');
+        categoryElement.className = 'category';
+        categoryElement.innerHTML = category;
+        categoiesCont.appendChild(categoryElement);
+
+        categoryElement.addEventListener('click', function () {
+            getProducts(category);
+            window.location.hash = category;
+        });
+
+    });
+
+}
+
+// function to search the products from the existing product list
 function performSearch(query) {
     const Products = document.querySelectorAll(".item");
 
@@ -80,7 +113,7 @@ function performSearch(query) {
 
 }
 
-
+// function to closen the popup
 function closePopup() {
     let popupcon = document.querySelector(".popup-container");
     popupcon.classList.remove("active-popup");

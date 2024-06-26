@@ -3,9 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../header.css" />
-    <link rel="stylesheet" href="./Home.css" />
-    <link rel="stylesheet" href="../items.css">
+    <link rel="stylesheet" href="./css/header.css" />
+    <link rel="stylesheet" href="./css/Home.css" />
+    <link rel="stylesheet" href="./css/items.css">
     <title>Home</title>
   </head>
 
@@ -13,27 +13,27 @@
     <div class="main-container">
       <header>
         <div class="logo">
-          <img src="../img/Logo.png" alt="" />
+          <img src="./img/Logo.png" alt="" />
         </div>
         <nav>
           <ul>
             <li>
-              <img src="../img/Home.svg" alt="" />
-              <a href="./Home.html">Home</a>
+              <img src="./img/Home.svg" alt="" />
+              <a href="./index.html">Home</a>
             </li>
             <li>
-              <img src="../img/man.png" alt="" />
+              <img src="./img/man.png" alt="" />
 
               <a href="Logout.html">Man</a>
             </li>
             <li>
-              <img src="../img/woman.png" alt="" />
-              <a href="Profile.html">Woman</a>
+              <img src="./img/woman.png" alt="" />
+              <a href="./profile.html">Woman</a>
             </li>
             <li>
-              <img src="../img/baby-boy.png" alt="" />
+              <img src="./img/baby-boy.png" alt="" />
 
-              <a href="Profile.html">Kids</a>
+              <a href="./profile.html">Kids</a>
             </li>
           </ul>
         </nav>
@@ -49,25 +49,25 @@
                   />
                   <div class="search-icon">
                     <label for="search"
-                      ><img tabindex="1" src="../img/Search.svg" alt=""
+                      ><img tabindex="1" src="./img/Search.svg" alt=""
                     /></label>
                   </div>
                 </div>
               </div>
             </li>
             <li class="wish listicon">
-              <a href="../WishList/wishlists.html">
-                <img src="../img/WishList.svg" alt="" />
+              <a href="./wishlists.html">
+                <img src="./img/WishList.svg" alt="" />
               </a>
             </li>
             <li class="cart listicon">
-              <a href="../CartList/cartlists.html">
-                <img src="../img/Cart.png" alt="" />
+              <a href="./cartlists.html">
+                <img src="./img/Cart.png" alt="" />
               </a>
             </li>
             <li class="profile" onclick="this.classList.toggle('visible')">
-              <a href="../Profile/profile.html">
-                <img src="../img/Profile.svg" alt="" />
+              <a href="./profile.html">
+                <img src="./img/Profile.svg" alt="" />
               </a>
             </li>
           </ul>
@@ -75,7 +75,7 @@
         <div class="profile-container-info">
           <div class="profile-info">
             <div class="profile-img">
-              <img src="../img/Profile.svg" alt="" />
+              <img src="./img/Profile.svg" alt="" />
             </div>
             <div class="profile-name">
               <p class="username"></p>
@@ -83,7 +83,7 @@
           </div>
           <div class="profile-options">
             <ul>
-              <li><a href="../Profile/profile.html>Profile</a></li>
+              <li><a href="./profile.html">Profile</a></li>
               <li class="logout"><a href="Logout.html">Logout</a></li>
             </ul>
           </div>
@@ -102,7 +102,7 @@
         <div class="item-container">
           <div class="item">
             <div class="item-img">
-              <img src="../img/Banner1.jpg" alt="" />
+              <img src="./img/Banner1.jpg" alt="" />
             </div>
 
             <div class="item-info">
@@ -116,7 +116,7 @@
                 <span>$344</span>
               </div>
               <div class="item-rating">
-                <span class="star"><img src="../img/star.svg" alt="" /></span>
+                <span class="star"><img src="./img/star.svg" alt="" /></span>
                 <span class="rate">4.4</span>
               </div>
             </div>
@@ -129,7 +129,7 @@
       <div class="popup">
         <div class="popup-header">
           <div class="close" onclick="closePopup()">
-            <img src="../img/close.png" alt="" />
+            <img src="./img/close.png" alt="" />
           </div>
         </div>
         <div class="popup-body">
@@ -138,16 +138,16 @@
       </div>
     </div>
 
-    <script src="../connectionlost.js"></script>
-    <script src="../loginCheck.js"></script>
+    <script src="./js/connectionlost.js"></script>
+    <script src="./js/loginCheck.js"></script>
 
     <script>
       let pagename = "home"
       const { username } = JSON.parse(localStorage.getItem("currentUser"));
       document.querySelector(".username").textContent = username;
     </script>
-    <script src="../item.js"></script>
-    <script src="./Home.js"></script>
+    <script src="./js/item.js"></script>
+    <script src="./js/Home.js"></script>
   </body>
 
 </html>
