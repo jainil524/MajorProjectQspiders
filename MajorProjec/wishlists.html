@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./css/header.css" />
     <link rel="stylesheet" href="./css/items.css" />
-    <link rel="stylesheet" href="./css/wishlist.css">
+    <link rel="stylesheet" href="./css/wishlist.css" />
 
     <title>Home</title>
   </head>
@@ -90,9 +90,14 @@
           </div>
         </div>
       </header>
-      
+
       <main>
-        <div class="item-container"></div>
+        <div class="item-container">
+          <div class="error">
+            <h1>No Product added in a wishlist</h1>
+            <a href="./index.html">Click here to add</a>
+          </div>
+        </div>
       </main>
     </div>
 
@@ -101,11 +106,10 @@
 
     <script>
       let pagename = "wishlist";
-      
     </script>
-    
+
     <script src="./js/item.js" defer></script>
-    
+
     <script defer>
       document.addEventListener("DOMContentLoaded", async () => {
         let wishlist = window.localStorage.getItem("wishlist");
@@ -113,8 +117,10 @@
         if (wishlist) {
           wishlist = JSON.parse(wishlist);
 
-          let products = await getProductByName(wishlist);
-          setProducts({ products: products });
+          if (wishlist.length > 0) {
+            let products = await getProductByName(wishlist);
+            setProducts({ products: products });
+          }
         }
       });
 
@@ -131,6 +137,5 @@
         return products;
       }
     </script>
-
   </body>
 </html>

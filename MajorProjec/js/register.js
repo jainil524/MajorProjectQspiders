@@ -50,5 +50,5 @@ registerbtn.addEventListener("click", function () {
     
     localStorage.setItem("users", JSON.stringify(users));
     alert("User registered successfully");
-    window.location.assign("../Login/login.html");
+    window.location.assign("./login.html");
 });

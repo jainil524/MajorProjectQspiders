@@ -34,7 +34,7 @@ loginbtn.addEventListener("click", function () {
                 localStorage.setItem("currentUser", JSON.stringify(user));
 
                 localStorage.setItem("currentUser", JSON.stringify(user));
-                window.location.href = "../Home/home.html";
+                window.location.href = "./index.html";
             }else{
                 alert("Incorrect email or password");
             }

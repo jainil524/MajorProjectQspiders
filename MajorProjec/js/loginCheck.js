@@ -2,5 +2,5 @@
 // if the user is not logged in, the user will be redirected to the login page
 if(window.localStorage.getItem("currentUser") == null){
     alert("Please login to continue");
-    window.location.href = "../Login/login.html";
+    window.location.href = "./login.html";
 }

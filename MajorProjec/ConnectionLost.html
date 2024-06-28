@@ -1,48 +1,50 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        *{
-            padding: 0;
-            margin: 0;
-            box-sizing: border-box;
-        }
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            *{
+                padding: 0;
+                margin: 0;
+                box-sizing: border-box;
+            }
 
-        body{
-            width: 100dvw;
-            height: 100dvh;
-            overflow: hidden;
-            background-color: #1e0a18;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-            position: relative;
-        }
+            body{
+                width: 100dvw;
+                height: 100dvh;
+                overflow: hidden;
+                background-color: #1e0a18;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-direction: column;
+                position: relative;
+            }
 
-        h2{
-            font-family: aptos;
-            position: absolute;
-            bottom: 4%;
-            color: white;
-            font-size: 2rem;
-            z-index: 2;
-        }
+            h2{
+                font-family: aptos;
+                position: absolute;
+                bottom: 4%;
+                color: white;
+                font-size: 2rem;
+                z-index: 2;
+            }
 
-        video{
-            width: 95%;
-            height: 95%;
-            object-fit: contain;
-        }
-    </style>
-</head>
-<body>
-    
-    <h2>Connection Lost Huhh?</h2>
-    <video src="./img/connlost.mp4" autoplay loop></video>
-    <script src="./connectionlost.js"></script>
-</body>
-</html>
+            video{
+                width: 95%;
+                height: 95%;
+                object-fit: contain;
+            }
+        </style>
+    </head>
+    <body>
+        
+        <h2>Connection Lost Huhh?</h2>
+    <video src="./img/connlost.mp4" muted autoplay loop aria-label="Connection lost animation">
+        Your browser does not support the video tag.
+    </video>
+    <script src="./js/connectionlost.js"></script>
+    </body>
+    </html>
