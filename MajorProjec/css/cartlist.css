@@ -142,3 +142,19 @@ main .wrapper {
 }
 
 
+.item-container .error{
+  display: none;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+
+.item-container:has(:only-child.error){
+  justify-content: center;
+  align-items: center;
+}
+
+.item-container:has(:only-child.error) .error{
+  display: flex;
+}
+

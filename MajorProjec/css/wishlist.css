@@ -2,19 +2,3 @@
     justify-content: center;
     width: 100%;
 }
-
-
-.item-container:empty{
-    justify-content: center;
-    align-items: center;
-}
-
-.item-container:empty .error{
-    display: flex;
-}
-
-.item-container .error{
-    /* display: none; */
-    flex-direction: column;
-    gap: 2rem;
-}

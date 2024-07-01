@@ -289,7 +289,20 @@ function RemoveFromList(e, target, place, id) {
     window.localStorage.setItem(place, JSON.stringify(lists));
     if (place == pagename) {
         item.remove();
+
+        let itemcon = document.querySelector(".item-container");
+
+        if (itemcon.childElementCount == 0) {
+
+            itemcon.innerHTML = `<div class="error">
+                                    <h1>No Product added in a wishlist</h1>
+                                    <a href="./index.html">Click here to add</a>
+                                </div>`;
+
+        }
+
     } else if (pagename == "home") {
+
         if (place == "wishlist") {
             target.querySelector("img").src = "./img/AddToWishlist.svg";
             target.innerHTML = target.querySelector("img").outerHTML + "Add to Wishlist";

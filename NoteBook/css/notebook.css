@@ -85,8 +85,8 @@ header .logo img {
 }
 
 .container.right .note {
-  max-width: 340px;
-  max-height: 200;
+  max-width: 380px;
+  max-height: 200px;
 
   border-radius: 6px;
   height: max-content;
@@ -161,6 +161,10 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.note.completed .info *{
+  text-decoration: line-through;
 }
 
 .error {

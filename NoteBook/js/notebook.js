@@ -34,6 +34,11 @@ function addNoteToPage(note) {
     let noteDiv = document.createElement('div');
 
     noteDiv.classList.add('note');
+
+    if(note.completed){
+        noteDiv.classList.add("completed")
+    }
+
     noteDiv.setAttribute('id', note.id);
 
     console.log(JSON.parse(note.tags));
@@ -54,6 +59,7 @@ function addNoteToPage(note) {
                             <p class="desc putEllipsis" style="--lines: 3;"></p>
                         </div>
                         <div class="btns">
+                            <button onclick="completeNote('${note.id}')">${note.completed?'Mark as uncomplete':'Mark as complete'}</button>
                             <button onclick="openPopup('${note.id}')">view</button>
                             <button onclick="deleteNote('${note.id}')">delete</button>
                         </div>`;
@@ -97,6 +103,7 @@ function addNote() {
         id: genrateUniqueID(),
         title: title.value,
         desc: desc.value,
+        completed: false,
         tags: JSON.stringify(tagsArray)
     };
 
@@ -135,4 +142,24 @@ function deleteNote(id) {
 
     let noteDiv = document.getElementById(id);
     noteDiv.remove();
+}
+
+/**
+ * this function will mark a note as completed
+ * 
+ * @param {String} id 
+ */
+function completeNote(id) {
+    let notesArray = JSON.parse(window.localStorage.getItem('notes'));
+    let noteIndex = notesArray.findIndex((note) => note.id === id);
+    notesArray[noteIndex].completed = !notesArray[noteIndex].completed;
+    window.localStorage.setItem('notes', JSON.stringify(notesArray));
+
+    let note = document.getElementById(id);
+    note.classList.toggle('completed');
+
+    
+    note.querySelector("button:first-child").innerText = notesArray[noteIndex].completed?"Mark as uncomplete":'Mark as complete';
+    
+
 }
