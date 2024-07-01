@@ -25,7 +25,6 @@ function openPopup(id) {
     let desc = popup.querySelector('#popup-note');
     let tags = popup.querySelector('#popup-tags');
 
-    console.log(note, title, desc);
 
     title.value = note.title;
     desc.value = note.desc;
@@ -37,10 +36,15 @@ function openPopup(id) {
 function saveEdit() {
     const newTitle = document.getElementById('popup-title').value;
     const newNote = document.getElementById('popup-note').value;
+    let newTags = document.getElementById('popup-tags').value;
 
+    newTags = newTags.replace(/\s/g, '');
+
+    
     let selectedNote = getNoteById(openedPopupID);
     selectedNote.title = newTitle;
     selectedNote.desc = newNote;
+    selectedNote.tags = JSON.stringify(newTags.split(','));
 
     let notesArray = JSON.parse(window.localStorage.getItem('notes'));
     let noteIndex = notesArray.findIndex((note) => note.id === openedPopupID);
@@ -49,8 +53,23 @@ function saveEdit() {
     window.localStorage.setItem('notes', JSON.stringify(notesArray));
 
     // Update the UI
-    document.querySelector('.note .title').value = newTitle;
-    document.querySelector('.note .desc').innerText = newNote;
+    let note = document.getElementById(openedPopupID);
+    note.querySelector(".title").innerText = newTitle;
+    note.querySelector('.desc').innerText = newNote;
+
+    let tagsContainer = note.querySelector('.tags-container');
+    tagsContainer.innerHTML = '';
+    let splitedTags = newTags.split(',');
+    if(splitedTags.length !== 0){
+
+        splitedTags.forEach(tag => {
+            let randomColor = getRandomColor()
+            tagsContainer.innerHTML += `<span class="tag" style="--color: ${randomColor}">${tag}</span>`
+        });
+    }else{
+        let randomColor = getRandomColor()
+        tagsContainer.innerHTML = `<span class="tag" style="--color: ${randomColor}">${tag}</span>`
+    }
 
     closePopup();
 }
